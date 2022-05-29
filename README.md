@@ -1,0 +1,2 @@
+# Open-Loop-System-Response-Analysis_Controls_3.2A
+Write a MATLAB- Simulink program to simulate and plot the open-loop response of the given system to a  unit-step reference signal. Is the open-loop response stable or unstable? Is the open-loop  system able to track the unit-step reference signal? Clearly show the plot of the open-loop  response of the system to a unit-step reference signal and state your observations. You  may write your observations as comments in your MATLAB program.
