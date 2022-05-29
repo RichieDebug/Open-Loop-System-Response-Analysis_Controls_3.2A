@@ -1,0 +1,47 @@
+%%
+%012358411 - Problem 2 Part A
+%Lam, Richard 
+
+clear; clc; close all; % Clears the workspace and command window.
+%%
+t0 = 0;
+ti = 0.01;
+tf = 10;
+dt = 1E-2;
+
+L = 0.4
+T = 1.5
+
+Kp = 1.2*(T/L); 
+Ti = 2*L;
+Td = 0.5*L;
+
+Ki = Kp/Ti;
+Kd = Kp*Td;
+
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Call Simulink Block Diagram%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+open_system('P2P2.slx')
+ansRAMP = sim('P2P2.slx');
+
+%%
+%%%%%%%%%%%%%%%%%%%%%
+%Plot Control System%
+%%%%%%%%%%%%%%%%%%%%%
+hold all % This is so each plot is actually gets plotted instead of overriding each other. 
+
+figure (1);
+plot(ansRAMP.Disturbance(:,1),ansRAMP.Disturbance(:,2));
+title('Open-Loop Unit Step Response');
+xlabel('Time (s)');
+ylabel('Amplitude');
+
+%%
+%%%%%%%%%%%%%%
+%Observations%
+%%%%%%%%%%%%%%
+% The open-loop response is stable because the system stabilizes around
+% 0.5.
+% The open-loop response is not able to track the initial disturbance of 1.
